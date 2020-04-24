@@ -1,0 +1,40 @@
+CREATE TABLE Order(
+	[OrderNumber] INT PRIMARY KEY IDENTITY,
+  [CustomerNumber]  INT,
+  [OrderDate] DATE,
+  CONSTRAINT FK_Order_Customer FOREIGN KEY ([CustomerID]) REFERENCES  [Customer] ([ID]),
+  )
+  INSERT INTO Order (OrderNumber, CustomerNumber, OrderDate)
+  VALUES ( 1234 , 9876, 11/4/98);
+
+  
+  CREATE TABLE Customer(
+  [CustomerNumber] INT PRIMARY KEY IDENTITY,
+	[Name] VARCHAR(50),
+  [Address] VARCHAR(100)
+  )
+  INSERT INTO Customer (CustomerNumber, Name, Address)
+  VALUES ( 9876 , 'Billy' , '456 Hightower Street, Hong Kong, China ');
+
+   CREATE TABLE Order Line(
+	[OrderNumber] INT PRIMARY KEY IDENTITY,
+  [ProductNumber] VARCHAR(4),
+  [Quantity] INT
+  )
+  INSERT INTO Order Line (OrderNumber, ProductNumber, Quantity)
+  VALUES ( 1234 , A123, 100 ), ( 1234, B234, 200), ( 1234, C345, 5); 
+
+
+  CREATE TABLE Product(
+   [ProductNumber] VARCHAR(4) PRIMARY KEY IDENTITY,
+  [Description] VARCHAR(200),
+  [UnitPrice] VARCHAR,
+  )
+  INSERT INTO Customer (ProductNumber, Description, UnitPrice)
+  VALUES ( A123 , 'Pencil' , $3.00 ), ( B234, 'Eraser', $1.50), (C345, 'Sharpener', $8.00)
+  
+  SELECT CustomerName, Address
+  FROM Customer
+  WHERE CustomerID > 9876
+  ORDER BY CustomerName ASC, Address DESC;
+)
